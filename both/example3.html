@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+
+  <link rel="stylesheet" href="\css\styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style media="screen">
+  #header_title {
+    color: white;
+    padding-left: 10px;
+    font-size: 20px;
+    padding-bottom: 13px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+
+  }
+
+  .chat-bot-header {
+    position: relative;
+    height: 50px;
+    position: fixed;
+    height: 70px;
+    bottom: 480px;
+    color: white;
+    padding-left: 10px;
+    font-size: 20px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-right: 10px;
+    background-color: white;
+    z-index: 3;
+    border-bottom-width: 100px;
+    margin-bottom: 2px;
+    /**top: 200px;**/
+    width: 344px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-image: linear-gradient(to top right, rgba(246, 72, 72, 1), rgba(250, 65, 95, 1));
+    animation: Scaleup .5s ease-in;
+
+
+  }
+
+  @keyframes Scaleup {
+    0% {
+      opacity: .0;
+    }
+
+    50% {
+      opacity: .0;
+    }
+
+    100% {
+
+      opacity: 1;
+    }
+  }
+
+  .closex {
+    float: right;
+    margin-right: 15px;
+    cursor: pointer;
+    margin-right: 0px;
+    margin-bottom: 0px;
+
+
+  }
+
+  #circle-button {
+    height: 200px;
+    width: 200px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 45px;
+    background-image: url("Chizuru.jpg");
+  }
+
+  .btn {
+    outline: none;
+  }
+
+  .input-box {
+    background: #fff;
+    width: 95%;
+    position: relative;
+    height: 52px;
+    padding-top: 10px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    margin-top: 5px;
+    resize: none;
+    outline: none;
+    border: 1px solid #F2F0F0;
+    color: #888;
+    border-radius: 3px;
+    overflow: hidden;
+    height: 62px;
+    width: 282px;
+    padding-right: 15px;
+    width: 257px;
+  }
+
+  html,
+  body {
+    background: #efefef;
+    height: 100%;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .chat-container {
+
+    position: relative;
+    height: 450px;
+    height: auto;
+    border-bottom: 1px solid rgba(181, 181, 181, 0.42);
+
+    overflow: auto;
+    max-height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    scroll-behavior: smooth;
+    hyphens: auto;
+  }
+
+  .chat-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chat-container:after {
+    content: "";
+    background-color: #F8F8F8;
+    opacity: 0.1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .chat-bot-box {
+
+    display: none;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: red;
+
+    background: #f8f8f8;
+    position: absolute;
+    height: 506px;
+    right: 30px;
+    bottom: 50px;
+    width: 350px;
+    max-width: 85vw;
+    max-height: 100vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    box-shadow: 0px 5px 35px 9px #ccc;
+  }
+
+  .chat-circle_robot {
+    position: fixed;
+    bottom: -10px;
+    right: -10px;
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+  }
+
+  .open-button {
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    border-radius: 45px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    background-image: linear-gradient(to top right, rgba(246, 72, 72, 1), rgba(250, 65, 95, 1));
+  }
+
+
+  .input-container {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    display: flex;
+    float: left;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    background-image: linear-gradient(to top right, rgba(246, 72, 72, 1), rgba(250, 65, 95, 1));
+    border-radius: 10px 10px 0px 10px;
+    padding: 10px 0px 10px 10px;
+
+  }
+
+  .input-container {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    font-size: 20px;
+
+  }
+
+  #chat-icon:hover {
+    opacity: .7;
+
+  }
+
+  .userText {
+    color: white;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    clear: both;
+  }
+
+  .userText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #5ca6fa;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards
+  }
+
+  .botText {
+    color: #000;
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .botText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards;
+  }
+
+  @keyframes floatup {
+    from {
+      transform: translateY(14px);
+      opacity: .0;
+    }
+
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+
+
+  @media screen and (max-width:550px) {
+    .full-chat-block {
+      width: 100%;
+      border-radius: 0px;
+    }
+
+    .chat-container {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
+  }
+</style>
+
+
+<body>
+
+
+    <span type="button" name="open-button" id="openbuttonid" class="btn btn-raised open-button" onclick="openButton()"><img class="chat-circle_robot" src="robot.jpg"></span>
+
+    <div class="chat-bot-box">
+      <div class="wholebtnbody">
+      <div class="chat-container" id="chatBox">
+
+
+          <div class="chat-bot-header">
+
+            <p id="header_title"> Chat Bot <span type="button" name="close-button" style="top: -5px;right: 0px;left: 15px;" class="btn close-button closex" onclick="closeButton()"><i class="material-icons">close</i></span></p>
+
+          </div>
+
+        <div class="chat-box" style="padding-top: 15px;">
+          <h7 id="chat-timestamp" style="margin-left: 43%;"></h7>
+          <p id="bot-start-msg" class="botText"><span>Loading...</span></p>
+        </div>
+
+        <div class="input-container">
+          <div id="userInput" style="height: 60px;">
+            <input id="textInput" class="input-box" style="height: 52px;margin-right: 6px;width: 257px;" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+            <p></p>
+          </div>
+          <div class="chat-bar-icons">
+            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+
+            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-microphone" onclick="voiceButton()"></i>
+          </div>
+        </div>
+        <div id="chat-bar-result">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--jquery ui-->
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+
+</body>
+<script type="text/javascript">
+  var botController = (function() {
+
+
+  })();
+
+  var uiController = (function() {
+
+  })();
+
+
+
+
+  var controller = (function(botCntr, uiCntr) {
+    var $chatCircle,
+      $chatBox,
+      $chatBoxClose,
+      $chatBoxWelcome;
+    /*toggle*/
+    function hideCircle(evt) {
+      evt.preventDefault();
+      $chatCircle.hide('scale');
+      $chatBox.show('scale');
+      $chatBoxWelcome.show('scale');
+    }
+
+    function chatBoxCl(evt) {
+      evt.preventDefault();
+      $chatCircle.show('scale');
+      $chatBox.hide('scale');
+      $chatBoxWelcome.hide('scale');
+
+    }
+
+    function chatSbmBtn(evt) {
+      if (evt.keyCode === 13 || evt.which === 13) {
+        console.log("btn pushed");
+      }
+
+    }
+
+    function init() {
+      $chatCircle = $("#openbuttonid");
+      $chatBox = $(".chat-bot-box");
+      $chatBoxClose = $(".closex");
+      $chatBoxWelcome = $("#header_title");
+
+      $chatCircle.on("click", hideCircle);
+      $chatBoxClose.on("click", chatBoxCl);
+    }
+
+    return {
+      init: init
+    };
+
+  })(botController, uiController);
+  $(document).ready(controller.init);
+</script>
+<script type="text/javascript">
+  function getTime() {
+    let today = new Date();
+    hours = today.getHours();
+    minutes = today.getMinutes();
+
+    if (hours < 10) {
+      hours = "0" + hours;
+    }
+
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+
+    let time = hours + ":" + minutes;
+    return time;
+  }
+</script>
+<script src="/scripts/opclose.js" charset="utf-8"></script>
+<script type="text/javascript">
+  function openButton() {
+    document.getElementById("chatBox").style.display = "block";
+  }
+
+  function closeButton() {
+    document.getElementById("chatBox").style.display = "none";
+  }
+</script>
+
+
+<script type="text/javascript">
+  function firstBotMessage() {
+    let firstMessage = "How can I help you";
+    document.getElementById("bot-start-msg").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
+
+
+
+    let time = getTime();
+
+    $("#chat-timestamp").append(time);
+    document.getElementById("userInput").scrollIntoView(false);
+  }
+  firstBotMessage();
+
+  function getHardResponse(userText) {
+    let botResponse = getBotResponse(userText);
+    let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
+    $(".chat-box").append(botHtml);
+
+    document.getElementById("chat-bar-result").scrollIntoView(true);
+  }
+
+  function getResponse() {
+    let userText = $("#textInput").val();
+
+    if (userText == "") {
+      userText = "Hello";
+    }
+
+    let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+
+    $("#textInput").val("");
+    $(".chat-box").append(userHtml);
+    document.getElementById("chat-bar-result").scrollIntoView(true);
+
+    setTimeout(() => {
+      getHardResponse(userText);
+    }, 1000)
+
+  }
+
+
+  function buttonSendText(sampleText) {
+    let userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
+
+    $("#textInput").val("");
+    $(".chat-box").append(userHtml);
+    document.getElementById("chat-bar-result").scrollIntoView(true);
+
+
+    setTimeout(() => {
+      getHardResponse(sampleText);
+    }, 1000)
+  }
+
+  function sendButton() {
+    getResponse();
+  }
+  function voiceButton(){
+    console.log("Mic On");
+
+
+  }
+  $("#textInput").keypress(function(e) {
+    if (e.which == 13) {
+      getResponse();
+    }
+  });
+</script>
+<script type="text/javascript">
+function getBotResponse(input) {
+
+   console.log(input);
+   let text = input;
+  let LowInput = text.toLowerCase();
+    if (LowInput.includes("hello")) {
+        return "Hello there!";
+    }
+
+    else if (LowInput.includes("goodbye")) {
+        return "Talk to you later!";
+    }
+
+    else if (LowInput == "k") {
+      return "MMM";
+    }
+
+    else if (LowInput.includes("search")) {
+      let searchKey = LowInput;
+      let result = searchKey.substring(6);
+      console.log(result);
+    }
+
+
+    else {
+
+    }
+}
+</script>
+
+
+
+<script type="text/javascript">
+
+
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+        var grammar = '#JSGF V1.0;'
+
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+
+
+
+
+
+        recognition.onresult = function(event) {
+            var last = event.results.length - 1;
+            var command = event.results[last][0].transcript;
+            let result = command.toLowerCase();
+
+            const cased = result.charAt(0).toUpperCase() + result.slice(1);
+
+            let userHtml = '<p class="userText"><span>' + cased + '</span></p>';
+
+            $("#textInput").val("");
+            $(".chat-box").append(userHtml);
+            document.getElementById("chat-bar-result").scrollIntoView(true);
+
+            setTimeout(() => {
+              getHardResponse(cased);
+            }, 10)
+
+            setTimeout(() => { console.log(cased);
+
+            let text = cased;
+            let LowInput = text.toLowerCase();
+            var msg = new SpeechSynthesisUtterance();
+            var voices = window.speechSynthesis.getVoices();
+            msg.voice = voices[2];
+            msg.voiceURI = 'native';
+            msg.volume = 1; // From 0 to 1
+            msg.rate = 1; // From 0.1 to 10
+            msg.pitch = 2; // From 0 to 2
+            msg.lang = 'en-US';
+             if (LowInput.includes("hello")) {
+                 msg.text = "Hello there!";
+                 speechSynthesis.speak(msg);
+             }
+
+             else if (LowInput.includes("hello")) {
+                msg.text ="Talk to you later!";
+                speechSynthesis.speak(msg);
+             }
+
+             }
+
+             else {
+               msg.text="Sorry , I can't understand but there is what's on google";
+                 speechSynthesis.speak(msg)
+             }
+            }, 10)
+
+
+
+
+        };
+
+        recognition.onspeechend = function() {
+            recognition.stop();
+        };
+
+        recognition.onerror = function(event) {
+            message.textContent = 'Error occurred in recognition: ' + event.error;
+        }
+
+        document.querySelector("#chatBox > div.input-container > div.chat-bar-icons > i.fa.fa-fw.fa-microphone").addEventListener('click', function(){
+            recognition.start();
+
+
+        });
+
+
+
+</script>
+</html>

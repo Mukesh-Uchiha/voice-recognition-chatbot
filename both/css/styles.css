@@ -1,0 +1,96 @@
+#header_title{
+    color: white;
+    padding-left: 10px;
+    font-size: 20px;
+    padding-top: 13px;
+}
+.chat-bot-header{
+  height: 420px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+}
+
+.closex {
+    float: right;
+    margin-right: 15px;
+    cursor: pointer;
+}
+#circle-button {
+  height:200px;
+  width:200px;
+  right:10px;
+  bottom:10px;
+  border-radius: 45px;
+  background-image: url("Chizuru.jpg");
+}
+
+.btn{
+  outline: none;
+}
+html,
+body {
+    background: #efefef;
+    height: 100%;
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.chat-container {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  background-color:red;
+  /*add display none*/
+  display: none;
+  /*background: #efefef;*/
+  background: #f8f8f8;
+  position: fixed;
+  /* right: 30px;*/
+  right: 30px;
+  bottom: 50px;
+  width: 350px;
+  max-width: 85vw;
+  max-height: 100vh;
+  border-radius: 3px;
+  box-shadow: 0px 5px 35px 9px #ccc;
+
+}
+.chat-bot-box{
+  position:fixed;
+  bottom: 0;
+  right: 15px;
+  z-index: 2;
+  background-color:red;
+}
+
+#chat-circle {
+    position: fixed;
+    bottom: 50px;
+
+    right: 50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0px 3px 16px 0px rgba(246, 72, 72, 0.5), 0 3px 1px -2px rgba(246, 72, 72, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+
+.open-button{
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  border-radius: 45px;
+  height: 25px;
+  width: 20px;
+}
