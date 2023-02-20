@@ -1,3 +1,3 @@
 # voice-recognition-chatbot
-Built using Javascript
+Built using Html, Javascript
 
